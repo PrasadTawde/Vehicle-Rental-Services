@@ -12,7 +12,7 @@
 <!-- Favicon Icon -->
 <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo.png">
 <!-- Animation CSS -->
-<link rel="stylesheet" href="assets/css/animate.css">   
+{{-- <link rel="stylesheet" href="assets/css/animate.css">    --}}
 <!-- Latest Bootstrap min CSS -->
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 <!-- Google Font -->

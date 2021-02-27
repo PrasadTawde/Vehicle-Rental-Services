@@ -12,7 +12,7 @@
 <!-- Favicon Icon -->
 <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo.png">
 <!-- Animation CSS -->
-{{-- <link rel="stylesheet" href="assets/css/animate.css">    --}}
+<link rel="stylesheet" href="assets/css/animate.css">   
 <!-- Latest Bootstrap min CSS -->
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 <!-- Google Font -->
@@ -62,7 +62,7 @@
                     </ul>
                 </div>
                 <ul class="navbar-nav attr-nav align-items-center">
-                    <li><a href="javascript:void(0);" class="nav-link search_trigger"><i class="linearicons-magnifier"></i></a>
+                    <li><a href="" class="nav-link search_trigger"><i class="linearicons-magnifier"></i></a>
                         <div class="search_wrap">
                             <span class="close-search"><i class="ion-ios-close-empty"></i></span>
                             <form>
@@ -73,7 +73,7 @@
                     </li>
                     <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href="#" data-toggle="dropdown"><i class="linearicons-cart"></i><span class="cart_count">2</span></a>
                         <div class="cart_box dropdown-menu dropdown-menu-right">
-                            <ul class="cart_list">
+                            {{-- <ul class="cart_list">
                                 <li>
                                     <a href="#" class="item_remove"><i class="ion-close"></i></a>
                                     <a href="#"><img src="assets/images/cart_thamb1.jpg" alt="cart_thumb1">Variable product 001</a>
@@ -88,7 +88,7 @@
                             <div class="cart_footer">
                                 <p class="cart_total"><strong>Subtotal:</strong> <span class="cart_price"> <span class="price_symbole">$</span></span>159.00</p>
                                 <p class="cart_buttons"><a href="#" class="btn btn-fill-line rounded-0 view-cart">View Cart</a><a href="#" class="btn btn-fill-out rounded-0 checkout">Checkout</a></p>
-                            </div>
+                            </div> --}}
                         </div>
                     </li>
                     <li><a href="login.html"><i class="ti-user"></i></a></li>
@@ -172,7 +172,7 @@
 <a href="#" class="scrollup" style="display: none;"><i class="ion-ios-arrow-up"></i></a> 
 
 <!-- Latest jQuery --> 
-<script src="assets/js/jquery-1.12.4.min.js"></script>
+<script src="assets/js/jquery-3.5.1.min.js"></script>
 <!-- Moment JS -->
 <script src="assets/js/plugin/moment/moment.min.js"></script> 
 <!-- popper min js -->

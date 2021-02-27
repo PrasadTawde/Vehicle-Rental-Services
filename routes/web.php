@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\SearchController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +17,8 @@ use App\Http\Controllers\SearchController;
 */
 
 Route::get('/', function () {
-    return view('home');
+	$location_states = DB::table('stations')->select('station_state')->groupBy('station_state')->get();
+    return view('home', ['location_states' => $location_states]);
 });
 Route::get('/about', function () {
     return view('about');

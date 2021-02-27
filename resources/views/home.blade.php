@@ -9,17 +9,25 @@
         <div class="banner_slide_content">
             <div class="container"><!-- STRART CONTAINER -->
                 <div class="row">
-                    <div class="col-lg-7 col-12">
+                    <div class="col-lg-9 col-12">
                         <div class="banner_content">
                             <h5 class="mb-3 staggered-animation font-weight-light" data-animation="slideInLeft" data-animation-delay="0.5s">Self Drive Cars for Rent !</h5>
-                            <h2 class="staggered-animation" data-animation="slideInLeft" data-animation-delay="1s">Fill the details for magic.</h2>
+                            <h3 class="staggered-animation" data-animation="slideInLeft" data-animation-delay="1s">Fill the details for magic.</h3>
                             <form method="POST" action="/search">
                                 @csrf
                                 <div class="row staggered-animation" data-animation="slideInLeft" data-animation-delay="1.5s">
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-4">
+                                        <select name="location" id="location" class="form-control">
+                                            <option disabled="" selected="">Select City</option>
+                                            @foreach($location_states as $state)
+                                                <option value="{{ $state->station_state }}">{{ $state->station_state }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-4">
                                         <input type="text" class="form-control" name="fromdate" id="datetime1" placeholder="When do you need a car ?" required="">
                                     </div>
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-4">
                                         <input type="text" class="form-control" name="todate" id="datetime2" placeholder="Till when do you need a car ?" required="">
                                     </div>
                                     <div class="form-group col-md-6">

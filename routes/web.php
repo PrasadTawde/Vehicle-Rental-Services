@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\vehicleController;
 
 
 /*
@@ -28,3 +29,7 @@ Route::get('/contact', function () {
 });
 
 Route::post('/search',[SearchController::class, 'search']);
+
+
+Route::view('vehicleData','renter/vehicleDetails');
+Route::post('submitted',[vehicleController::class,'vDetails']);

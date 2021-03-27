@@ -10,34 +10,34 @@
 <!-- SITE TITLE -->
 <title>{{ config('app.name') }}</title>
 <!-- Favicon Icon -->
-<link rel="shortcut icon" type="image/x-icon" href="assets/images/logo.png">
+<link rel="shortcut icon" type="image/x-icon" href="/assets/images/logo.png">
 <!-- Animation CSS -->
-<link rel="stylesheet" href="assets/css/animate.css">   
+<link rel="stylesheet" href="/assets/css/animate.css">   
 <!-- Latest Bootstrap min CSS -->
-<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&amp;display=swap" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet"> 
 <!-- Icon Font CSS -->
-<link rel="stylesheet" href="assets/css/all.min.css">
-<link rel="stylesheet" href="assets/css/ionicons.min.css">
-<link rel="stylesheet" href="assets/css/themify-icons.css">
-<link rel="stylesheet" href="assets/css/linearicons.css">
-<link rel="stylesheet" href="assets/css/flaticon.css">
-<link rel="stylesheet" href="assets/css/simple-line-icons.css">
+<link rel="stylesheet" href="/assets/css/all.min.css">
+<link rel="stylesheet" href="/assets/css/ionicons.min.css">
+<link rel="stylesheet" href="/assets/css/themify-icons.css">
+<link rel="stylesheet" href="/assets/css/linearicons.css">
+<link rel="stylesheet" href="/assets/css/flaticon.css">
+<link rel="stylesheet" href="/assets/css/simple-line-icons.css">
 
 <!--- owl carousel CSS-->
-<link rel="stylesheet" href="assets/owlcarousel/css/owl.carousel.min.css">
-<link rel="stylesheet" href="assets/owlcarousel/css/owl.theme.css">
-<link rel="stylesheet" href="assets/owlcarousel/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="/assets/owlcarousel/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/assets/owlcarousel/css/owl.theme.css">
+<link rel="stylesheet" href="/assets/owlcarousel/css/owl.theme.default.min.css">
 <!-- Magnific Popup CSS -->
-<link rel="stylesheet" href="assets/css/magnific-popup.css">
+<link rel="stylesheet" href="/assets/css/magnific-popup.css">
 <!-- Slick CSS -->
-<link rel="stylesheet" href="assets/css/slick.css">
-<link rel="stylesheet" href="assets/css/slick-theme.css">
+<link rel="stylesheet" href="/assets/css/slick.css">
+<link rel="stylesheet" href="/assets/css/slick-theme.css">
 <!-- Style CSS -->
-<link rel="stylesheet" href="assets/css/style.css">
-<link rel="stylesheet" href="assets/css/responsive.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/responsive.css">
 </head>
 
 <body>
@@ -48,8 +48,8 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg"> 
                 <a class="navbar-brand" href="index.html">
-                    <img class="logo_light" src="assets/images/logo.png" alt="logo" />
-                    <img class="logo_dark" src="assets/images/logo.png" alt="logo" />
+                    <img class="logo_light" src="/assets/images/logo.png" alt="logo" />
+                    <img class="logo_dark" src="/assets/images/logo.png" alt="logo" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false"> 
                     <span class="ion-android-menu"></span>
@@ -76,12 +76,12 @@
                             {{-- <ul class="cart_list">
                                 <li>
                                     <a href="#" class="item_remove"><i class="ion-close"></i></a>
-                                    <a href="#"><img src="assets/images/cart_thamb1.jpg" alt="cart_thumb1">Variable product 001</a>
+                                    <a href="#"><img src="/assets/images/cart_thamb1.jpg" alt="cart_thumb1">Variable product 001</a>
                                     <span class="cart_quantity"> 1 x <span class="cart_amount"> <span class="price_symbole">$</span></span>78.00</span>
                                 </li>
                                 <li>
                                     <a href="#" class="item_remove"><i class="ion-close"></i></a>
-                                    <a href="#"><img src="assets/images/cart_thamb2.jpg" alt="cart_thumb2">Ornare sed consequat</a>
+                                    <a href="#"><img src="/assets/images/cart_thamb2.jpg" alt="cart_thumb2">Ornare sed consequat</a>
                                     <span class="cart_quantity"> 1 x <span class="cart_amount"> <span class="price_symbole">$</span></span>81.00</span>
                                 </li>
                             </ul>
@@ -91,7 +91,39 @@
                             </div> --}}
                         </div>
                     </li>
-                    <li><a href="login.html"><i class="ti-user"></i></a></li>
+                    <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href="#" data-toggle="dropdown"><i class="ti-user"></i></a>
+                        <div class="cart_box dropdown-menu dropdown-menu-right">
+                            @if(Auth::check())
+                                <ul class="cart_list">
+                                    @if(Auth::user()->hasRole('renter'))
+                                    <li>
+                                        <a href="{{ route('vehicle-data') }}">Add Vehicle Details</a>
+                                    </li>
+                                    @endif
+                                    <li>
+                                        <a href="#">My Profile</a>
+                                    </li>
+                                </ul>
+                                <div class="cart_footer">
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <p class="cart_buttons">
+                                            <a href="#" class="btn btn-fill-out rounded-0 checkout" onclick="event.preventDefault();
+                                                    this.closest('form').submit();">Logout</a>
+                                        </p>
+                                    </form>
+                                </div>
+                            @else
+                                <div class="cart_footer">
+                                    <p class="cart_buttons">
+                                        <a href="{{ route('login') }}" class="">Login</a>
+                                        <br>
+                                        <a href="{{ route('register') }}">Sign Up</a>
+                                    </p>
+                                </div>
+                            @endif
+                        </div>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -113,7 +145,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="widget">
                         <div class="footer_logo">
-                            <a href="#"><img src="assets/images/logo lite.png" alt="logo"/></a>
+                            <a href="#"><img src="/assets/images/logo lite.png" alt="logo"/></a>
                         </div>
                         <p>Hassle free Vehicle renting service</p>
                     </div>
@@ -172,37 +204,37 @@
 <a href="#" class="scrollup" style="display: none;"><i class="ion-ios-arrow-up"></i></a> 
 
 <!-- Latest jQuery --> 
-<script src="assets/js/jquery-3.5.1.min.js"></script>
+<script src="/assets/js/jquery-3.5.1.min.js"></script>
 <!-- Moment JS -->
-<script src="assets/js/plugin/moment/moment.min.js"></script> 
+<script src="/assets/js/plugin/moment/moment.min.js"></script> 
 <!-- popper min js -->
-<script src="assets/js/popper.min.js"></script>
+<script src="/assets/js/popper.min.js"></script>
 <!-- Latest compiled and minified Bootstrap --> 
-<script src="assets/bootstrap/js/bootstrap.min.js"></script> 
+<script src="/assets/bootstrap/js/bootstrap.min.js"></script> 
 <!-- owl-carousel min js  --> 
-<script src="assets/owlcarousel/js/owl.carousel.min.js"></script> 
+<script src="/assets/owlcarousel/js/owl.carousel.min.js"></script> 
 <!-- magnific-popup min js  --> 
-<script src="assets/js/magnific-popup.min.js"></script> 
+<script src="/assets/js/magnific-popup.min.js"></script> 
 <!-- waypoints min js  --> 
-<script src="assets/js/waypoints.min.js"></script> 
+<script src="/assets/js/waypoints.min.js"></script> 
 <!-- parallax js  --> 
-<script src="assets/js/parallax.js"></script> 
+<script src="/assets/js/parallax.js"></script> 
 <!-- countdown js  --> 
-<script src="assets/js/jquery.countdown.min.js"></script> 
+<script src="/assets/js/jquery.countdown.min.js"></script> 
 <!-- imagesloaded js --> 
-<script src="assets/js/imagesloaded.pkgd.min.js"></script>
+<script src="/assets/js/imagesloaded.pkgd.min.js"></script>
 <!-- isotope min js --> 
-<script src="assets/js/isotope.min.js"></script>
+<script src="/assets/js/isotope.min.js"></script>
 <!-- jquery.dd.min js -->
-<script src="assets/js/jquery.dd.min.js"></script>
+<script src="/assets/js/jquery.dd.min.js"></script>
 <!-- slick js -->
-<script src="assets/js/slick.min.js"></script>
+<script src="/assets/js/slick.min.js"></script>
 <!-- elevatezoom js -->
-<script src="assets/js/jquery.elevatezoom.js"></script>
+<script src="/assets/js/jquery.elevatezoom.js"></script>
 <!-- date and timepicker -->
-<script src="assets/js/plugin/datepicker/bootstrap-datetimepicker.min.js"></script>
+<script src="/assets/js/plugin/datepicker/bootstrap-datetimepicker.min.js"></script>
 <!-- scripts js --> 
-<script src="assets/js/scripts.js"></script>
+<script src="/assets/js/scripts.js"></script>
 
 @yield('jsscript')
 

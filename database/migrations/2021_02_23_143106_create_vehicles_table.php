@@ -20,7 +20,7 @@ class CreateVehiclesTable extends Migration
             $table->string('vehicle_model', 20);
             $table->string('vehicle_fuel_type', 20);
             $table->integer('vehicle_min_deposite');
-            $table->string('vehicla_status',20);
+            $table->string('vehicle_status',20);
             $table->string('vehicle_state', 20);
             $table->string('vehicle_location', 20);
             $table->string('vehicle_img', 20);

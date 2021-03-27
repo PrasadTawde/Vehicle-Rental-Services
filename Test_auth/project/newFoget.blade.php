@@ -1,1 +1,0 @@
-newFoget.blade.php

@@ -10,7 +10,7 @@
 			</div>
 		</div> 
 
-        <form name = "form1" method="post" action="submitted">   
+        <form name = "form1" method="post" action="vehicle-data">   
         @csrf 
 			<div class="container d-block bg-light text-white pt-5 pb-5"  style="padding-left:30%;">
             <div class = "row justify-content-centre">    

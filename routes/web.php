@@ -30,6 +30,14 @@ Route::get('/contact', function () {
 
 Route::post('/search',[SearchController::class, 'search']);
 
+//for renter
+Route::group(['middleware'=>['auth','role:renter']],function(){
+	Route::get('/renter', function () {
+	    return view('renter.renter');
+	})->name('renter');
 
-Route::view('vehicleData','renter/vehicleDetails');
-Route::post('submitted',[vehicleController::class,'vDetails']);
+	Route::get('/vehicle-data',[vehicleController::class,'create'])->name('vehicle-data');
+	Route::post('/vehicle-data',[vehicleController::class,'store'])->name('vehicle-data');
+});
+
+require __DIR__.'/auth.php';

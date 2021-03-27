@@ -4,12 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Providers\RouteServiceProvider;
 use App\Models\Vehicle;
 
 class vehicleController extends Controller
 {
-    //
-    function vDetails(Request $req){
+    function create()
+    {
+        return view('renter.vehicleDetails');
+    }
+
+    function store(Request $req)
+    {
         //print_r($req->input());
         $vehicle=new Vehicle;
         $vehicle->vehicle_no=$req->vNo;
@@ -20,8 +26,9 @@ class vehicleController extends Controller
         $vehicle->vehicle_status=$req->vStatus;
         $vehicle->vehicle_state=$req->state;
         $vehicle->vehicle_location=$req->location;
+        $vehicle->vehicle_img=" ";
         $vehicle->save();
 
-
+        return redirect(RouteServiceProvider::RENTER);
     }
 }

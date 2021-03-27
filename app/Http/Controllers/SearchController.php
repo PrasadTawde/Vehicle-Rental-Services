@@ -11,7 +11,7 @@ class SearchController extends Controller
     {
     	$formData = $request->all();
         $location = $request->input('location');
-    	$vehicles = DB::table('vehicles')->where('vehicle_location',$location)->get();
+    	$vehicles = DB::table('vehicles')->where('vehicle_state',$location)->get();
     	
         $location_states = DB::table('stations')->select('station_state')->groupBy('station_state')->get();
 

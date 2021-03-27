@@ -1,12 +1,12 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => 'v8.5.10',
-    'version' => '8.5.10.0',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '6154e8c8662404617411bd33b024c283b994d156',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -422,12 +422,30 @@
         0 => 'v8.28.1',
       ),
     ),
+    'kkszymanowski/traitor' => 
+    array (
+      'pretty_version' => '0.2.5',
+      'version' => '0.2.5.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '9770fc7de72ff585601dc9c42b31715d9fc40a24',
+    ),
     'kodova/hamcrest-php' => 
     array (
       'replaced' => 
       array (
         0 => '*',
       ),
+    ),
+    'laravel/breeze' => 
+    array (
+      'pretty_version' => 'v1.1.3',
+      'version' => '1.1.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'cf91d78e154fd274273926d6773ed6750f7c2c2c',
     ),
     'laravel/framework' => 
     array (
@@ -440,12 +458,12 @@
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => 'v8.5.10',
-      'version' => '8.5.10.0',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '6154e8c8662404617411bd33b024c283b994d156',
     ),
     'laravel/sail' => 
     array (
@@ -760,8 +778,8 @@
     array (
       'provided' => 
       array (
-        0 => '1.0',
-        1 => '1.0.0',
+        0 => '1.0.0',
+        1 => '1.0',
       ),
     ),
     'psr/simple-cache' => 
@@ -815,6 +833,15 @@
       array (
         0 => '4.1.1',
       ),
+    ),
+    'santigarcor/laratrust' => 
+    array (
+      'pretty_version' => '6.3.2',
+      'version' => '6.3.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '9ab3bfdc06afe18b17f69b77cb77291c36dae9f6',
     ),
     'sebastian/cli-parser' => 
     array (

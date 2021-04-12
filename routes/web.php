@@ -43,11 +43,11 @@ Route::group(['middleware' => ['auth', 'role:renter']], function () {
 require __DIR__ . '/auth.php';
 
 // Route::get('/vehicleFullDetails',function(){
-// 	return view('vehicleDetails');
+// 	return view('vehicleFullDetails');
 // });
 
 
 Route::group(['middleware' => ['web']], function () {
 	//routes here
-	Route::get('vehicleFullDetails/{vehicle_id}', [vehicleController::class, 'details'])->name('vehicleFullDetails/{vehicle_id}');
+	Route::get('vehicleFullDetails/{vehicle_id}/{fromdate}/{todate}', [vehicleController::class, 'details'])->name('vehicleFullDetails/?{vehicle_id}&{fromdate}&{todate}');//{vehicle_id}/{fromdate}/{todate}
 });

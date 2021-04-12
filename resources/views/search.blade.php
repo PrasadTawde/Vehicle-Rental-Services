@@ -75,7 +75,7 @@
                 {{-- list grid --}}
 
                 <div class="row shop_container" id="list_cars_div">
-                    @foreach($vehicles as $vehicle)
+                    @foreach($vehicles as $vehicle )
                     <div class="col-md-3 col-9">
                         <div class="product">
                             <div class="product_img">
@@ -126,7 +126,7 @@
                                         <span data-color="#333333"></span>
                                         <span data-color="#DA323F"></span> -->
                                         <!-- <button type="submit" class="btn btn-fill-out rounded-0 staggered-animation text-uppercase" data-animation="slideInLeft" data-animation-delay="2s">Search Cars</button> -->
-                                        <a href="vehicleFullDetails/{{$vehicle->vehicle_id}}" class="btn btn-primary rounded-0 staggered-anmation text-uppercase" data-animation="slideInLeft" data-animation-delay="2s">Details</a>
+                                        <a href="vehicleFullDetails/{{$vehicle->vehicle_id }}/{{$formData['fromdate']}}/{{$formData['todate']}}" class="btn btn-primary rounded-0 staggered-anmation text-uppercase" data-animation="slideInLeft" data-animation-delay="2s">Details</a>
                                     </div>
                                 </div>
                                 <div class="list_product_action_box">
@@ -164,10 +164,12 @@
 
 <script>
     $('#datetime1').datetimepicker({
-        format: 'MM/DD/YYYY H:mm',
+        dateFormat: 'MM-DD-YYYY H:mm',
+        separator: '-'
     });
     $('#datetime2').datetimepicker({
-        format: 'MM/DD/YYYY H:mm',
+        dateFormat: 'MM-DD-YYYY H:mm',
+        separator: '-'
     });
 </script>
 

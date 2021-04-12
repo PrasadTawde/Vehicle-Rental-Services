@@ -25,7 +25,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <input type="text" class="form-control" name="fromdate" id="datetime1" placeholder="When do you need a car ?" required="">
+                                        <input type="text" class="form-control" name="fromdate" id="datetime1" placeholder="When do you need a car ?" required="" value="mm-dd-yy">
                                     </div>
                                     <div class="form-group col-md-4">
                                         <input type="text" class="form-control" name="todate" id="datetime2" placeholder="Till when do you need a car ?" required="">
@@ -159,11 +159,14 @@
 
 <script>
     $('#datetime1').datetimepicker({
-        format: 'MM/DD/YYYY H:mm',
+        format: 'MM-DD-YYYY H:mm',
     });
     $('#datetime2').datetimepicker({
-        format: 'MM/DD/YYYY H:mm',
+        format: 'MM-DD-YYYY H:mm',
     });
+
+    
+
 </script>
 
 @endsection

@@ -32,12 +32,12 @@ class vehicleController extends Controller
         return redirect(RouteServiceProvider::RENTER);
     }
 
-    function details($vehicle_id){
+    function details($vehicle_id,$fromdate,$todate){
     //    $vDetails = Vehicle:: where('vehicles.vehicle_id',$vehicle_id)->first();
     // $vDetails = Vehicle:: find($vehicle_id);
     // $vDetails = DB::select('select * from vehicles where vehicle_id = '$vehicle_id);
     $vDetails=new Vehicle;
     $vDetails = DB::table('vehicles')->where('vehicle_id',$vehicle_id)->get();
-       return view('/vehicleFullDetails',['vDetails'=>$vDetails]);
+       return view('/vehicleFullDetails',['vDetails'=>$vDetails ,'fromdate'=>$fromdate,'todate'=>$todate]);
     }
 }

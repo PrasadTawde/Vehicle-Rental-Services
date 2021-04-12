@@ -119,11 +119,14 @@
                                 <div class="pr_desc">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc id varius nunc.</p>
                                 </div>
+
                                 <div class="pr_switch_wrap">
                                     <div class="product_color_switch">
-                                        <span class="active" data-color="#87554B"></span>
+                                        <!-- <span class="active" data-color="#87554B"></span>
                                         <span data-color="#333333"></span>
-                                        <span data-color="#DA323F"></span>
+                                        <span data-color="#DA323F"></span> -->
+                                        <!-- <button type="submit" class="btn btn-fill-out rounded-0 staggered-animation text-uppercase" data-animation="slideInLeft" data-animation-delay="2s">Search Cars</button> -->
+                                        <a href="vehicleFullDetails/{{$vehicle->vehicle_id}}" class="btn btn-primary rounded-0 staggered-anmation text-uppercase" data-animation="slideInLeft" data-animation-delay="2s">Details</a>
                                     </div>
                                 </div>
                                 <div class="list_product_action_box">

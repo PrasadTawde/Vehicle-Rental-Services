@@ -19,25 +19,35 @@ use App\Http\Controllers\vehicleController;
 
 Route::get('/', function () {
 	$location_states = DB::table('stations')->select('station_state')->groupBy('station_state')->get();
-    return view('home', ['location_states' => $location_states]);
+	return view('home', ['location_states' => $location_states]);
 });
 Route::get('/about', function () {
-    return view('about');
+	return view('about');
 });
 Route::get('/contact', function () {
-    return view('contact');
+	return view('contact');
 });
 
-Route::post('/search',[SearchController::class, 'search']);
+Route::post('/search', [SearchController::class, 'search']);
 
 //for renter
-Route::group(['middleware'=>['auth','role:renter']],function(){
+Route::group(['middleware' => ['auth', 'role:renter']], function () {
 	Route::get('/renter', function () {
-	    return view('renter.renter');
+		return view('renter.renter');
 	})->name('renter');
 
-	Route::get('/vehicle-data',[vehicleController::class,'create'])->name('vehicle-data');
-	Route::post('/vehicle-data',[vehicleController::class,'store'])->name('vehicle-data');
+	Route::get('/vehicle-data', [vehicleController::class, 'create'])->name('vehicle-data');
+	Route::post('/vehicle-data', [vehicleController::class, 'store'])->name('vehicle-data');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
+
+// Route::get('/vehicleFullDetails',function(){
+// 	return view('vehicleDetails');
+// });
+
+
+Route::group(['middleware' => ['web']], function () {
+	//routes here
+	Route::get('vehicleFullDetails/{vehicle_id}', [vehicleController::class, 'details'])->name('vehicleFullDetails/{vehicle_id}');
+});

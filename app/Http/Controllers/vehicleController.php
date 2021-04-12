@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Providers\RouteServiceProvider;
@@ -30,5 +30,14 @@ class vehicleController extends Controller
         $vehicle->save();
 
         return redirect(RouteServiceProvider::RENTER);
+    }
+
+    function details($vehicle_id){
+    //    $vDetails = Vehicle:: where('vehicles.vehicle_id',$vehicle_id)->first();
+    // $vDetails = Vehicle:: find($vehicle_id);
+    // $vDetails = DB::select('select * from vehicles where vehicle_id = '$vehicle_id);
+    $vDetails=new Vehicle;
+    $vDetails = DB::table('vehicles')->where('vehicle_id',$vehicle_id)->get();
+       return view('/vehicleFullDetails',['vDetails'=>$vDetails]);
     }
 }

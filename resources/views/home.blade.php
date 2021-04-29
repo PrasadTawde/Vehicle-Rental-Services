@@ -17,7 +17,7 @@
                                 @csrf
                                 <div class="row staggered-animation" data-animation="slideInLeft" data-animation-delay="1.5s">
                                     <div class="form-group col-md-4">
-                                        <select name="location" id="location" class="form-control">
+                                        <select name="location" id="location" class="form-control" required="">
                                             <option disabled="" selected="">Select City</option>
                                             @foreach($location_states as $state)
                                                 <option value="{{ $state->station_state }}">{{ $state->station_state }}</option>

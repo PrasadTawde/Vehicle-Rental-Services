@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '6154e8c8662404617411bd33b024c283b994d156',
+    'reference' => '82866c0f034b4f69cf387536f4b143ec08144f1a',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -487,7 +487,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '6154e8c8662404617411bd33b024c283b994d156',
+      'reference' => '82866c0f034b4f69cf387536f4b143ec08144f1a',
     ),
     'laravel/sail' => 
     array (
@@ -851,12 +851,30 @@ private static $installed = array (
       ),
       'reference' => 'cd4032040a750077205918c86049aa0f43d22947',
     ),
+    'razorpay/razorpay' => 
+    array (
+      'pretty_version' => '2.6.0',
+      'version' => '2.6.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '6dad785301f6391fad108dc0abccea662ad7f93b',
+    ),
     'rhumsaa/uuid' => 
     array (
       'replaced' => 
       array (
         0 => '4.1.1',
       ),
+    ),
+    'rmccue/requests' => 
+    array (
+      'pretty_version' => 'v1.7.0',
+      'version' => '1.7.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '87932f52ffad70504d93f04f15690cf16a089546',
     ),
     'santigarcor/laratrust' => 
     array (

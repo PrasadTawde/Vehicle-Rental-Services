@@ -31,6 +31,12 @@
                             <h4 class="product_title"><a href="#">{{ $details->vehicle_model }}</a></h4>
                             <span class="" style="display:block; margin-top: 20px;word-spacing:10px"> From: {{$fromdate}}</span>
                             <span class="" style="display:block; margin-bottom: 20px; word-spacing:10px"> To: {{$todate}} </span>
+                            {{-- <?php
+                                $from = strtotime($fromdate);
+                                $to = strtotime($todate);
+                                echo $days = date_diff($from , $to);
+                                echo round($days / 86400);
+                            ?> --}}
 
 
                             <div class="product_price">
@@ -48,7 +54,7 @@
                                 <span class="rating_num">(21)</span>
                             </div>
                             <div class="pr_desc">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc id varius nunc.</p>
+                                <p><br><i class="fas fa-suitcase-rolling"></i> 2 Baggage <i class="fas fa-chair"></i> 5 Seater <i class="fas fa-gas-pump"></i> Petrol <i class="fab fa-medium-m"></i> Manual</p>
                             </div>
 
                             <div class="product_sort_info">
@@ -69,58 +75,15 @@
                                     <hr>
                                 </ul>
                             </div>
-                            <div class="pr_switch_wrap">
-                                <span class="switch_lable">Color</span>
-                                <div class="product_color_switch">
-                                    <span class="active" data-color="#87554B"></span>
-                                    <span data-color="#333333"></span>
-                                    <span data-color="#DA323F"></span>
-                                </div>
-                            </div>
-                            <!-- <div class="pr_switch_wrap">
-                            <span class="switch_lable">Size</span>
-                            <div class="product_size_switch">
-                                <span>xs</span>
-                                <span>s</span>
-                                <span>m</span>
-                                <span>l</span>
-                                <span>xl</span>
-                            </div> -->
                         </div>
                     </div>
                     @endforeach
-                    <hr />
                     <div class="cart_extra">
-                        <div class="cart-product-quantity">
-                            <!-- <div class="quantity">
-                                    <input type="button" value="-" class="minus">
-                                    <input type="text" name="quantity" value="1" title="Qty" class="qty" size="4">
-                                    <input type="button" value="+" class="plus">
-                                </div> -->
-                        </div>
                         <div class="cart_btn">
-                            <button class="btn btn-fill-out btn-addtocart" type="button"><i></i> Book Car</button>
-                            <!-- <a class="add_compare" href="#"><i class="icon-shuffle"></i></a> -->
-                            <a class="add_wishlist" href="#"><i class="icon-heart"></i></a>
+                            <button class="btn btn-fill-out btn-addtocart" type="button" onclick="location.href='/book/{{$details->vehicle_id }}/{{$fromdate}}/{{$todate}}';"><i></i> Book Car</button>
                         </div>
                     </div>
                     <hr />
-                    <!-- <ul class="product-meta">
-                            <li>SKU: <a href="#">BE45VGRT</a></li>
-                            <li>Category: <a href="#">Clothing</a></li>
-                            <li>Tags: <a href="#" rel="tag">Cloth</a>, <a href="#" rel="tag">printed</a> </li>
-                        </ul> -->
-
-                    <div class="product_share">
-                        <span>Share:</span>
-                        <ul class="social_icons">
-                            <li><a href="#"><i class="ion-social-facebook"></i></a></li>
-                            <li><a href="#"><i class="ion-social-twitter"></i></a></li>
-                            <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
-                            <li><a href="#"><i class="ion-social-youtube-outline"></i></a></li>
-                            <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>

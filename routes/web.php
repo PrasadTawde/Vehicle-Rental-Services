@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\vehicleController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\RazorpayController;
 
 
 /*
@@ -51,3 +53,14 @@ Route::group(['middleware' => ['web']], function () {
 	//routes here
 	Route::get('vehicleFullDetails/{vehicle_id}/{fromdate}/{todate}', [vehicleController::class, 'details'])->name('vehicleFullDetails/?{vehicle_id}&{fromdate}&{todate}');//{vehicle_id}/{fromdate}/{todate}
 });
+
+//booking
+Route::group(['middleware' => ['auth', 'role:customer']], function () {
+	Route::get('/book/{vehicle_id}/{fromdate}/{todate}', [BookingController::class, 'create'])->name('create');
+	Route::get('/book/{id}', [BookingController::class, 'getAddress'])->name('getAddress');
+});
+
+//payment
+Route::get('/payment', [RazorpayController::class, 'payment'])->name('payment');
+Route::post('/payment', [RazorpayController::class, 'initiate'])->name('initiate');
+Route::post('/payment-complete', [RazorpayController::class, 'complete'])->name('complete');

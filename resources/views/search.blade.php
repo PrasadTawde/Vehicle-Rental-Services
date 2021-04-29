@@ -84,10 +84,7 @@
                                 </a>
                                 <div class="product_action_box">
                                     <ul class="list_none pr_action_btn">
-                                        <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                        <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                        <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-                                        <li><a href="#"><i class="icon-heart"></i></a></li>
+                                        <li class="add-to-cart"><button class="btn btn-primary rounded-1 text-uppercase" onclick="location.href='vehicleFullDetails/{{$vehicle->vehicle_id }}/{{$formData['fromdate']}}/{{$formData['todate']}}';"><i class="icon-basket-loaded"></i> Book Now</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -119,22 +116,9 @@
                                 <div class="pr_desc">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc id varius nunc.</p>
                                 </div>
-
-                                <div class="pr_switch_wrap">
-                                    <div class="product_color_switch">
-                                        <!-- <span class="active" data-color="#87554B"></span>
-                                        <span data-color="#333333"></span>
-                                        <span data-color="#DA323F"></span> -->
-                                        <!-- <button type="submit" class="btn btn-fill-out rounded-0 staggered-animation text-uppercase" data-animation="slideInLeft" data-animation-delay="2s">Search Cars</button> -->
-                                        <a href="vehicleFullDetails/{{$vehicle->vehicle_id }}/{{$formData['fromdate']}}/{{$formData['todate']}}" class="btn btn-primary rounded-0 staggered-anmation text-uppercase" data-animation="slideInLeft" data-animation-delay="2s">Details</a>
-                                    </div>
-                                </div>
                                 <div class="list_product_action_box">
                                     <ul class="list_none pr_action_btn">
-                                        <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add To Cart</a></li>
-                                        <li><a href="shop-compare.html" class="popup-ajax"><i class="icon-shuffle"></i></a></li>
-                                        <li><a href="shop-quick-view.html" class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
-                                        <li><a href="#"><i class="icon-heart"></i></a></li>
+                                        <li class="add-to-cart"><a href="vehicleFullDetails/{{$vehicle->vehicle_id }}/{{$formData['fromdate']}}/{{$formData['todate']}}"><i class="icon-basket-loaded"></i> Book Now</a></li>
                                     </ul>
                                 </div>
                             </div>

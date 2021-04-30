@@ -14,7 +14,7 @@
                        
                     </div> -->
                         <div class="product_img_box">
-                            <img id="product_img" src='public/assets/images/maruti-swift.png' data-zoom-image="assets/images/maruti-swift.png" alt="product_img1" />
+                            <img id="product_img" src='/assets/images/maruti-wagon-r.png' data-zoom-image="/assets/images/maruti-wagon-r.png" alt="product_img1" />
                             <a href="#" class="product_img_zoom" title="Zoom">
                                 <span class="linearicons-zoom-in"></span>
                             </a>
@@ -29,8 +29,8 @@
 
                             @foreach($vDetails as $details)
                             <h4 class="product_title"><a href="#">{{ $details->vehicle_model }}</a></h4>
-                            <span class="" style="display:block; margin-top: 20px;word-spacing:10px"> From: {{$fromdate}}</span>
-                            <span class="" style="display:block; margin-bottom: 20px; word-spacing:10px"> To: {{$todate}} </span>
+                            {{-- <span class="" style="display:block; margin-top: 20px;word-spacing:10px"> From: {{$fromdate}}</span>
+                            <span class="" style="display:block; margin-bottom: 20px; word-spacing:10px"> To: {{$todate}} </span> --}}
                             {{-- <?php
                                 $from = strtotime($fromdate);
                                 $to = strtotime($todate);

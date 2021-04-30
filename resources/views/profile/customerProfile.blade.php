@@ -63,7 +63,7 @@
                     </ul>
 
                     <div class="cart_btn">
-                        <button class="btn btn-fill-out btn-sm" type="button"><i></i><a href="{{'edit/'.$customer->customer_id}}">Update</a> </button>
+                        <button class="btn btn-fill-out btn-sm" type="button"><i></i><a href="{{'/profile/edit/'.$customer->customer_id}}">Update</a> </button>
                     </div>
 
 
@@ -86,7 +86,7 @@
  -->
 
     
-       <form  action="create" method="POST"  >
+       <form  action="/profile/create" method="POST"  >
         @csrf  
 
     <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
@@ -134,8 +134,8 @@
 
 <!-- START SECTION SUBSCRIBE NEWSLETTER -->
 <div class="section bg_default small_pt small_pb">
-	<div class="container">	
-       <div class="row align-items-center">	
+    <div class="container"> 
+       <div class="row align-items-center"> 
         <div class="col-md-6">
             <div class="heading_s1 mb-md-0 heading_light">
                 <h3>Subscribe Our Newsletter</h3>

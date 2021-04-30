@@ -7,6 +7,7 @@ use \Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 class customerInsertController extends Controller
 {
@@ -19,6 +20,8 @@ class customerInsertController extends Controller
 
     	// return $request->input();
 
+		$user = Auth::user();
+        $user_id = $user->id;
 
 		$request->validate([
 			'customer_fname'=>'required',
@@ -30,6 +33,7 @@ class customerInsertController extends Controller
 		]);
 
 		$query=DB::table('customers')->insert([
+			'customer_id'=>$user_id,
 			'customer_fname'=>$request->input('customer_fname'),
 			'customer_lname'=>$request->input('customer_lname'),
 			'customer_contact_no'=>$request->input('customer_contact_no'),

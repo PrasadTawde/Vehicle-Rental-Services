@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Providers\RouteServiceProvider;
 use App\Models\Payment;
+use App\Models\Order;
 use Razorpay\Api\Api;
 use Illuminate\Support\Str;
 use Config;
@@ -16,7 +17,7 @@ class RazorpayController extends Controller
 
     public function payment()
     {
-    	return view('payment');
+        return view('payment');
     }
 
     public function initiate(Request $request)
@@ -41,6 +42,11 @@ class RazorpayController extends Controller
             'amount' => $request->all()['amount'] * 100,
             'currency' => 'INR',
             'description' => 'Testing description',
+            'vehicle_id' => $request->all()['vehicle_id'],
+            'pickup_id' => $request->all()['stations'],
+            'drop_id' => $request->all()['stations2'],
+            'fromdate' => $request->all()['fromdate'],
+            'todate' => $request->all()['todate'],
         ];
 
         // Let's checkout payment page is it working
@@ -70,6 +76,17 @@ class RazorpayController extends Controller
             $pay->razorpay_id = $razorpay_id;
             $pay->amount = $amount;
             $pay->save();
+
+            //saving in has rented table
+            $order = new Order;
+            $order->customer_id = $user_id;
+            $order->vehicle_id = $request->all()['vehicle_id'];
+            $order->payment_id = $request->all()['rzp_paymentid'];
+            $order->pickup_location = $request->all()['pickup_id'];
+            $order->drop_location = $request->all()['drop_id'];
+            $order->from_date = $request->all()['fromdate'];
+            $order->to_date = $request->all()['todate'];
+            $order->save();
             return view('payment-success-page');
         }
         else{

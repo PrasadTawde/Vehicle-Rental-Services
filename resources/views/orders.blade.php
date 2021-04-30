@@ -31,14 +31,16 @@ th, td {
 <caption>Order History</caption>
   <tr>
     <th>Vehicle ID</th>
+    <th>Payment ID</th>
     <th>Date From</th> 
     <th>Date Till</th>
   </tr>
   @foreach ($Orders as $order)
   <tr>
-    <td>{{$order->$vehicle_id}}</td>
-    <td>{{$order->$from_date}}</td>
-    <td>{{$order->$to_date}}</td>
+    <td>{{ $order->vehicle_id }}</td>
+    <td>{{ $order->payment_id }}</td>
+    <td>{{ $order->from_date }}</td>
+    <td>{{ $order->to_date }}</td>
   </tr>
   @endforeach
   </table>

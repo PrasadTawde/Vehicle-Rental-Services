@@ -50,6 +50,9 @@
 
                             <div class="product_sort_info">
                                 <hr>
+                                <input type="text" name="vehicle_id" id="vehicle_id" value="{{ $details->vehicle_id }}" hidden="">
+                                <input type="text" name="fromdate" id="fromdate" value="{{ $fromdate }}" hidden="">
+                                <input type="text" name="todate" id="todate" value="{{ $todate }}" hidden="">
                                 <center><span>--CAR PICKUP & DROP LOCATION--</span></center>
                                 <ul>
                                     <hr>

@@ -100,9 +100,14 @@
                                         <a href="{{ route('vehicle-data') }}">Add Vehicle Details</a>
                                     </li>
                                     @endif
+                                    @if(Auth::user()->hasRole('customer'))
                                     <li>
-                                        <a href="#">My Profile</a>
+                                        <a href="/orders">My Order History</a>
                                     </li>
+                                    <li>
+                                        <a href="/profile">My Profile</a>
+                                    </li>
+                                    @endif
                                 </ul>
                                 <div class="cart_footer">
                                     <form method="POST" action="{{ route('logout') }}">

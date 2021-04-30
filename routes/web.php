@@ -6,6 +6,8 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\vehicleController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\RazorpayController;
+use App\Http\Controllers\customerController;
+use App\Http\Controllers\customerInsertController;
 use App\Http\Controllers\orderController;
 
 
@@ -60,6 +62,7 @@ Route::group(['middleware' => ['web']], function () {
 Route::group(['middleware' => ['auth', 'role:customer']], function () {
 	Route::get('/book/{vehicle_id}/{fromdate}/{todate}', [BookingController::class, 'create'])->name('create');
 	Route::get('/book/{id}', [BookingController::class, 'getAddress'])->name('getAddress');
+	Route::get('/orders', [orderController::class, 'index'])->name('index');
 });
 
 //payment
@@ -69,16 +72,13 @@ Route::post('/payment-complete', [RazorpayController::class, 'complete'])->name(
 
 
 //profile
-Route::get('profile/{customer_id}', [customerController::class, 'profile']);
-
+Route::get('/profile', [customerController::class, 'profile']);
 
 //customer insert data
-Route::get('insert',[customerInsertController::class,'insert']);
+Route::get('/insert',[customerInsertController::class,'insert']);
 Route::post('/profile/create',[customerInsertController::class,'create']);
 
-
 //update customer data
-Route::get('profile/edit/{customer_id}',[customerController::class,'showData']);
-Route::post('edit/{customer_id}',[customerController::class,'updateData']);
+Route::get('/profile/edit/{customer_id}',[customerController::class,'showData']);
+Route::post('/edit/{customer_id}',[customerController::class,'updateData']);
 
-Route::get('/orders', [orderController::class, 'index'])->name('index');

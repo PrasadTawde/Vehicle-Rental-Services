@@ -6,22 +6,23 @@ use Illuminate\Http\Request;
 use App\Models\customer;
 use Illuminate\Support\Facades\DB;
 
-use Illuminate\Support\Facades\Auth;
+use Auth;
 
 
 class customerController extends Controller
 {
     // function profile(){
-    // 	$data= customer::all();
-    // 	return view('profile.customerProfile',['customers'=>$data]);
+    //  $data= customer::all();
+    //  return view('profile.customerProfile',['customers'=>$data]);
     // }
 
-    function profile($customer_id){
+    function profile(){
 
-    	$customerData=new customer;
-        $customerData= DB::select('select * from customers where customer_id = ?',[$customer_id]);
+        $user = Auth::user();
+        $user_id = $user->id;
 
-    	return view('profile.customerProfile',['customers'=>$customerData]);
+        $customerData = DB::table('customers')->where('customer_id',$user_id)->get();
+        return view('profile.customerProfile',['customers'=>$customerData]);
     }
 
 
@@ -48,7 +49,7 @@ class customerController extends Controller
 
         DB::update('update customers set customer_fname = ?,customer_lname=?,customer_contact_no=?,customer_country=?,customer_state=?,customer_driving_licence_no=? where customer_id = ?',[$customer_fname,$customer_lname,$customer_contact_no,$customer_country,$customer_state,$customer_driving_licence_no,$customer_id]);
 
-        return redirect('profile/19');
+        return redirect('/profile');
         // return redirect()->route('profile',[$customer_id]);
 
 

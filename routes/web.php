@@ -6,6 +6,8 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\vehicleController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\RazorpayController;
+use App\Http\Controllers\orderController;
+
 
 
 /*
@@ -78,3 +80,5 @@ Route::post('/profile/create',[customerInsertController::class,'create']);
 //update customer data
 Route::get('profile/edit/{customer_id}',[customerController::class,'showData']);
 Route::post('edit/{customer_id}',[customerController::class,'updateData']);
+
+Route::get('/orders', [orderController::class, 'index'])->name('index');

@@ -64,3 +64,17 @@ Route::group(['middleware' => ['auth', 'role:customer']], function () {
 Route::get('/payment', [RazorpayController::class, 'payment'])->name('payment');
 Route::post('/payment', [RazorpayController::class, 'initiate'])->name('initiate');
 Route::post('/payment-complete', [RazorpayController::class, 'complete'])->name('complete');
+
+
+//profile
+Route::get('profile/{customer_id}', [customerController::class, 'profile']);
+
+
+//customer insert data
+Route::get('insert',[customerInsertController::class,'insert']);
+Route::post('/profile/create',[customerInsertController::class,'create']);
+
+
+//update customer data
+Route::get('profile/edit/{customer_id}',[customerController::class,'showData']);
+Route::post('edit/{customer_id}',[customerController::class,'updateData']);
